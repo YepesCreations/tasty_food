@@ -95,20 +95,20 @@ img {
 
 /*===== UTILITIES =====*/
 body.dark-theme {
-    --title-color: #F1F3F2;
-    --text-color: #C7D1CC;
-    --body-color: #1D2521;
-    --container-color: #27302C;
-  }
+  --title-color: #f1f3f2;
+  --text-color: #c7d1cc;
+  --body-color: #1d2521;
+  --container-color: #27302c;
+}
 
-.change-theme{
-    position: absolute;
-    right: 1rem;
-    top: 1.3rem;
-    color: var(--text-color);
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
+.change-theme {
+  position: absolute;
+  right: 1rem;
+  top: 1.3rem;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 
 .section {
   padding: 4rem 0 2rem;
@@ -528,6 +528,10 @@ body.dark-theme {
 @media screen and (min-width: 768px) {
   body {
     margin: 0;
+  }
+
+  section.about.section {
+    padding-top: 0;
   }
 
   .section {

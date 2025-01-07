@@ -101,7 +101,6 @@ function scrollTop() {
 // We add the scroll event to the window and call the scrollTop function
 window.addEventListener("scroll", scrollTop);
 
-
 /* ================================================
                                             Dark Light Theme
 ================================================ */
@@ -114,19 +113,22 @@ const selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
 
 // We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => (document.body.classList.contains(darkTheme) ? "dark" : "light");
-const getCurrentIcon = () => (themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun");
+const getCurrentTheme = () =>
+  document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+  themeButton.classList.contains(iconTheme) ? "bx-moon" : "bx-sun";
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
-  themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"](iconTheme);
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeButton.classList[selectedIcon === "bx-moon" ? "add" : "remove"](
+    iconTheme
+  );
 }
-
-
-
-
+// Activate / deactivate the theme manually with the button
 themeButton.addEventListener("click", () => {
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
@@ -134,3 +136,25 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+/* ================================================
+                                      Scroll Reveal Animation
+================================================ */
+const sr = ScrollReveal({
+  origin: "top",
+  distance: "30px",
+  duration: 2000,
+  reset: true,
+});
+
+sr.reveal(
+  `.home__data, .home__img, 
+           .about__data, .about__img, 
+           .services__content, .menu__content, 
+           .app__data, .app__img, 
+           .contact__data, .contact__button, 
+           .footer__content, .footer__copy , .yepescreations__logo`,
+  {
+    interval: 200,
+  }
+);
